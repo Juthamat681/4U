@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4Uja</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: #f5f1f0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #302b2b;
+  }
+  .card {
+    width: min(560px, 100%);
+    background: white;
+    border-radius: 22px;
+    padding: 30px;
+    box-shadow: 0 12px 40px rgba(0,0,0,.10);
+  }
+  h1 { margin: 0 0 8px; font-size: 26px; text-align: center; }
+  .hint { text-align: center; color: #8b8080; margin-bottom: 24px; }
+  input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #d8d0d0;
+    border-radius: 12px;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 4px;
+    outline: none;
+  }
+  button {
+    width: 100%;
+    margin-top: 12px;
+    padding: 14px;
+    border: 0;
+    border-radius: 12px;
+    background: #302b2b;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  #error { color: #c0392b; text-align: center; margin-top: 12px; display:none; }
+  #message {
+    display:none;
+    margin-top: 24px;
+    padding: 22px;
+    background: #faf8f7;
+    border-radius: 16px;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    font-size: 16px;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div id="lock">
+    <h1>4Uja</h1>
+    <div class="hint">ใส่รหัสถ้าอยากจะอ่าน</div>
+    <input id="code" type="password" inputmode="numeric" maxlength="4" placeholder="••••">
+    <button onclick="unlock()">เปิด</button>
+    <div id="error">รหัสง่ายๆมึงยังใส่ไม่ถูกเนาะ</div>
+  </div>
+
+  <div id="message">คือถ้าเหตุผลมีแค่นี้ก็ขอบคุณมากที่ออกไปชีวิตกุ บอกว่ากุด่าแล้วตัวเองเสียใจน้อยใจ แล้วกุล่ะ ตอนตัวเองด่ากุคิดบ้างรึป่าวว่ากุจะเสียใจมั้ย บอกกุเล่นแม่ทั้งๆที่ตอนนั้นกุไม่ได้ด่าด้วยซ้ำ แต่พอเป็นตัวเองกลับเล่นพ่อแม่กุสนุกปาก คิดถูกแล้วที่คิดว่าแทนที่แฟนกุไม่ได้ เขาเกิดก่อนมึงแค่ 2เดือน แต่เหมือนเขาโตกว่ามึง 2ปี เขาไม่ได้มาหากุแค่ที่ห้อง เขาไม่ได้คิดกับกุแค่เซ็กถึงมึงจะบอกไม่ได้คิดกับกุแค่เรื่องนี้แต่กุไม่เคยได้อะไรจากมึงเลยนอกจากเซ็ก แล้วตอนแรกกุไม่ได้คิดอะไรเรื่องเงิน ที่กุซื้อให้มึงกินกุเต็มใจตลอด พอพี่มึงมาพิมแบบนั้นในวันนั้นมันทำให้กุคิดได้จริงๆ ขนาดพี่มึงยังเกรงใจ แต่มึงเกรงใจกุบ้างมั้ย พี่มึงบอกมาทีไรไม่เคยพกตังมา นี่คือมึงตั้งใจไม่พกหรืออะไรหรอกุอยากรู้จริงๆ มาหากุจ่ายอะไรบ้างนอกจากค่าแกร้บ กับคนเก่าก็ทำแบบนี้หรอหรือทำแค่กับกุ อยากจะเย็ดกับกุถุงยางยังไม่อยากซื้อมาอันนี้ทุเรศจริง มีคนใหม่ก็อย่าทำตัวมักง่ายแบบนี้นะ ถ้ายังทำตัวแบบนี้อยู่</div>
+</div>
+
+<script>
+function unlock() {
+  const code = document.getElementById("code").value;
+  const error = document.getElementById("error");
+  if (code === "0311") {
+    document.getElementById("lock").style.display = "none";
+    document.getElementById("message").style.display = "block";
+  } else {
+    error.style.display = "block";
+  }
+}
+document.getElementById("code").addEventListener("keydown", e => {
+  if (e.key === "Enter") unlock();
+});
+  </script>
+  </body>
+  </html>
